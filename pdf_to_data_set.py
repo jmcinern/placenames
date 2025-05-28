@@ -16,3 +16,72 @@ Plan:
         if is_dréacht:
         else:
               '''
+import os
+import fitz
+import re
+# function that takes directory path as input and returns a list the files within
+def file_names_from_dir(dir_path):
+    # get list and return with error handling - code by GPT
+    try:
+        # List all entries in the directory
+        all_entries = os.listdir(dir_path)
+        # Filter only files
+        file_list = [entry for entry in all_entries if os.path.isfile(os.path.join(dir_path, entry))]
+        return file_list
+    except FileNotFoundError:
+        print(f"The directory {dir_path} does not exist.")
+        return []
+    except PermissionError:
+        print(f"Permission denied to access {dir_path}.")
+        return []
+
+
+def is_number(s):
+    return re.fullmatch(r"\d+", s) is not None
+
+def are_valid_place_names(en, ga):
+    combined = en + ga
+    if "(" in combined or "[" in combined:
+        return False
+    if re.search(r"\d", combined):  # any digit anywhere
+        return False
+    return True
+    # makes sure no number
+
+def pdf_to_place_names_list(fn_name_pdf):
+    """Extract all English-Irish placename pairs from a PDF."""
+    place_name_pairs = []
+    try:
+        doc = fitz.open(fn_name_pdf)
+        for page in doc:
+            lines = page.get_text().split("\n")
+            i = 0
+            while i < len(lines) - 2:
+                if is_number(lines[i]) and not is_number(lines[i+1]) and not is_number(lines[i+2]):
+                    en_name = lines[i + 1].strip()
+                    ga_name = lines[i + 2].strip()
+                    if are_valid_place_names(en_name, ga_name):
+                        place_name_pairs.append((en_name, ga_name))
+                    i += 3
+                else:
+                    i += 1
+    except Exception as e:
+        print(f"Error processing {fn_name_pdf}: {e}")
+    return place_name_pairs
+
+# between logainmneacha and YYYY and an-tordu-logainmneacha-contae-laoise-2018-dreacht
+def get_area_from_f_name(f_name):
+    # remove ".pdf"
+    f_name = f_name.replace(".pdf", "")
+    f_name_split = f_name.split("-")
+    try:
+        f_name_split = f_name.split("-")
+        contae_idx = f_name_split.index("logainmneacha")
+        year_idx = next(i for i in range(contae_idx + 1, len(f_name_split))
+                            if re.fullmatch(r"\d{4}", f_name_split[i]))
+        area_parts = f_name_split[contae_idx + 1 : year_idx]
+        area = " ".join(area_parts)
+        return area
+    except:
+        return "err"
+    
