@@ -1,6 +1,6 @@
 # Irish Placenames Extractor
 
-This project reads Irish place names from PDF files and creates a structured dataset with the aim of improving speech recognition and data synthesis. The overview was created with copilot.
+This project reads Irish place names from PDF files and creates a structured dataset with the aim of improving speech recognition and data synthesis. The overview was created with the help of copilot.
 
 ## Overview
 
@@ -24,6 +24,15 @@ This project reads Irish place names from PDF files and creates a structured dat
   - Parsing each PDF to extract placename data,
   - Handling region-specific extraction and formatting.
 
+  - **test_placenames.py**
+    - Different PDF formats identified and analysed
+    - Manually exctracted sample placenames for each PDF type
+    - Edge cases identified
+        - With " or " indicating multple names
+        - Line breaks
+        - Multiline
+        - Standard and square brackets
+          
 ## Getting Started
 
 1. **Setup:**  
