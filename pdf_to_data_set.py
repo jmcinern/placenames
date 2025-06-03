@@ -47,7 +47,7 @@ def is_valid_name(s):
     if s == "":
         return False
     if re.search(r"[A-Z]{3}", s):
-        return False 
+        return False
     if re.search(r"\d", s):
         return False
     else:
@@ -64,6 +64,8 @@ def clean_name_brackets(s):
     # Remove anything in parentheses, including the parentheses themselves
     s = re.sub(r"\(.*?\)", "", s)
     return s.strip()
+
+
 def handle_or_case(en_name, ga_name):
     # Handle cases with "or" or "nó" (Irish for "or")
     en_names = en_name.split(" or ")
@@ -73,8 +75,11 @@ def handle_or_case(en_name, ga_name):
     ga_name = clean_name_brackets(ga_names[0])
 
     return en_name, ga_name
+
+
 def is_number(s):
     return re.fullmatch(r"\d+\.?\s*$", s) is not None
+
 
 def pdf_to_place_names_list(fn_name_pdf):
     set_of_tuples = set()
@@ -86,14 +91,14 @@ def pdf_to_place_names_list(fn_name_pdf):
         print(fn_name_pdf)
         for page in doc:
             lines = page.get_text().split("\n")
-            #print(lines)
+            # print(lines)
             i = 0
             while i < len(lines) - 2:
                 if (
                     is_number(lines[i])
                     and is_valid_name(lines[i + 1])
                     and is_valid_name(lines[i + 2])
-                    and is_number(lines[i+3])
+                    and is_number(lines[i + 3])
                 ):
                     en_name = lines[i + 1].strip()
                     ga_name = lines[i + 2].strip()
@@ -104,19 +109,31 @@ def pdf_to_place_names_list(fn_name_pdf):
                     if re.search(r"\[", en_name) and re.search(r"\]", ga_name):
                         i += 3
                         continue
-       
+
                     # keep it simple and just keep the first name
                     if (" or " in en_name) or (" nó " in ga_name):
                         en_name, ga_name = handle_or_case(en_name, ga_name)
-                        if is_valid_name(en_name) and is_valid_name(ga_name) and (en_name, ga_name) not in set_of_tuples:
+                        if (
+                            is_valid_name(en_name)
+                            and is_valid_name(ga_name)
+                            and (en_name, ga_name) not in set_of_tuples
+                        ):
                             set_of_tuples.add((en_name, ga_name))
-                            if not re.search(r"[\[\]\(\)]", en_name) and not re.search(r"[\[\]\(\)]", ga_name):
+                            if not re.search(r"[\[\]\(\)]", en_name) and not re.search(
+                                r"[\[\]\(\)]", ga_name
+                            ):
                                 place_name_pairs.append((en_name, ga_name))
                         i += 3
-                    else:       
-                        if is_valid_name(en_name) and is_valid_name(ga_name) and (en_name, ga_name) not in set_of_tuples:
+                    else:
+                        if (
+                            is_valid_name(en_name)
+                            and is_valid_name(ga_name)
+                            and (en_name, ga_name) not in set_of_tuples
+                        ):
                             set_of_tuples.add((en_name, ga_name))
-                            if not re.search(r"[\[\]\(\)]", en_name) and not re.search(r"[\[\]\(\)]", ga_name):
+                            if not re.search(r"[\[\]\(\)]", en_name) and not re.search(
+                                r"[\[\]\(\)]", ga_name
+                            ):
                                 place_name_pairs.append((en_name, ga_name))
                         i += 3
                 else:
