@@ -48,4 +48,7 @@ This project reads Irish place names from PDF files and creates a structured dat
    python main.py
 
 4. Output:
-The output CSV file will contain the cleaned and structured placename pairs ready for further use. 
+The output CSV file will contain the cleaned and structured placename pairs ready for further use.
+
+## TODO 
+- Generate synthetic text with the place names to train speech synthesis.
