@@ -27,7 +27,8 @@ This project reads Irish place names from PDF files and creates a structured dat
   - **test_placenames.py**
     - Different PDF formats identified and analysed
     - Manually exctracted sample placenames for each PDF type
-    - Edge cases identified
+    - Edge cases identified:
+      
         - With " or " indicating multple names
         - Line breaks
         - Multiline
