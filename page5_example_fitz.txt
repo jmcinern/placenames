@@ -1,0 +1,1011 @@
+(Column 1
+(Column 2
+English Language)
+Irish language)
+1
+Abbey
+An Mhainistir
+2
+Abbeylands
+Fearann na Mainistreach
+3
+Abbeymahon
+Mainistir Ó mBána
+4
+Abbeystrowry
+Mainistir na Sruthrach
+5
+Acres [ED: Boherboy]
+Na hAcraí
+6
+Acres [ED: Castle Hyde]
+Na hAcraí
+7
+Acres [ED: Garranes]
+Na hAcraí
+8
+Acres [ED: Kinsale Rural]
+Na hAcraí
+9
+Acres [ED: Knockskagh]
+Na hAcraí
+10
+Acres [ED: Manch]
+Na hAcraí
+11
+Acres [ED: Milford]
+Na hAcraí
+12
+Acres [ED: Templenacarriga]
+Na hAcraí
+13
+Adamstown
+Baile Adaim
+14
+Adrigole
+Eadargóil
+15
+Adrigool
+Eadargóil
+16
+Adrivale
+Eadarghabháil
+17
+Agha
+Achadh
+18
+Aghabeg
+Achadh Beag
+19
+Aghaburren
+Achadh Boireann
+20
+Aghacross
+Áth Cros
+21
+Aghada
+Áth Fhada
+22
+Aghadoe
+Achadh Fhada
+23
+Aghadown
+Achadh Dúin
+24
+Aghaduff
+Achadh Dubh
+25
+Aghafore
+Achadh Phóire
+26
+Aghagooheen
+Achadh Guithín
+27
+Aghalinane
+Áth Uí Leannáin
+28
+Aghamarta
+Achadh Mhártain
+29
+Aghamilla
+Achadh Meille
+30
+Aghaneenagh
+Áth Naíonach
+31
+Agharinagh
+Achadh Dhraighneach
+32
+Aghatubrid Beg
+Achadh Tiobraide Beag
+33
+Aghatubrid More
+Achadh Tiobraide Mór
+34
+Aghaville
+Áth an Mhíl
+35
+Aghavine
+Áth Mhín
+36
+Aghavrin
+Achadh Bhrain
+37
+Aghern East
+Áth Cairn Thoir
+38
+Aghern West
+Áth Cairn Thiar
+39
+Aghills
+An Achaill
+40
+Aghmanister and Spital
+Achadh Mhainistreach agus an Spidéal
+41
+Aghnalyra
+Áth na Laidhre
+42
+Aghyohil Beg
+Achadh Eochaille Beag
+43
+Aghyohil More
+Achadh Eochaille Mór
+44
+Aglish
+An Eaglais
+45
+Ahadallane
+Áth an Dalláin
+46
+Ahagilla [ED: Ardfield]
+Achadh Gaibhle
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-laoise-2018-dreacht.pdf
+
+
+35
+Avoley
+An Athbhuaile
+36
+Badgerhill
+Cnoc na mBroc
+37
+Badgerisland
+Oileán na mBroc
+38
+Baggottspark
+Páirc an Bhagóidigh
+39
+Ballagharahin
+Bealach an Ráithín
+40
+Ballaghlyragh or Nealstown
+Bealach Ladhrach
+41
+Ballaghmore
+An Bealach Mór
+42
+Ballaghmore Lower
+An Bealach Mór  Íochtarach
+43
+Ballaghmore Upper
+An Bealach Mór Uachtarach
+44
+Ballickmoyler
+Baile Mhic Mhaoilir
+45
+Ballickmoyler Upper
+Baile Mhic Mhaoilir Uachtarach
+46
+Ballina [ED: Arderin]
+Béal an Átha
+47
+Ballina [ED: Clondarrig]
+Baile an Fheá
+48
+Ballinaclogh Lower
+Baile na Cloiche Íochtarach
+49
+Ballinaclogh Upper
+Baile na Cloiche Uachtarach
+50
+Ballinakill
+Baile na Coille
+51
+Ballinfrase
+Baile an Phráis
+52
+Ballinla
+Baile an Leá
+53
+Ballinlough [ED: Ballycarroll]
+Baile an Locha
+54
+Ballinlough [ED: Ballyroan]
+Baile an Locha
+55
+Ballinrahin
+Baile an Raithin
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-liatroma-2012-dreacht.pdf
+
+
+
+6
+38
+Aghanlish
+Achadh Sheanlis
+39
+Agharann
+Achadh Reanna
+40
+Agharoosky
+Achadh Rúscaí
+41
+Agharroo
+Achadh Choradh
+42
+Aghatawny Lower
+Achadh Tamhnaí Íochtarach
+43
+Aghatawny Upper
+Achadh Tamhnaí Uachtarach
+44
+Aghavadden
+Achadh Mhadáin
+45
+Aghavanny
+Achadh an Mhanaigh
+46
+Aghavas
+Achadh an Mheasa
+47
+Aghavilla
+Achadh an Bhile
+48
+Aghavoghil
+Achadh Bhuachaill
+49
+Aghavore
+Achadh Mhór
+50
+Aghawillin [ED: Gortermone]
+Achadh an Mhuilinn
+51
+Aghawillin [ED: Garadice]
+Achadh an Mhuilinn
+52
+Aghintass
+Achadh an Teasa
+53
+Aghinteeduff
+Achadh an Tí Duibh
+54
+Aghintober
+Achadh an Tobair
+55
+Aghlacon
+Achadh Locha Chon
+56
+Aghlin
+An Eachlainn
+57
+Aghnacross
+Achadh na Croise
+58
+Aghnagollop
+Achadh na gColpach
+59
+Aghnahaha
+Achadh na hÁithe
+60
+Aghnahoo [ED: Moher]
+Achadh na hUamha
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-loch-garman-2016-dreacht.pdf
+
+
+35.
+Ask
+Easc
+36.
+Aska Beg
+An Easca Bheag
+37.
+Aska More
+An Easca Mhór
+38.
+Askabeg
+Uisce Beag
+39.
+Askaheige
+Easca Chaoch
+40.
+Askakeel
+Easca Chaol
+41.
+Askasilla
+Easca na Saileach
+42.
+Askinamoe
+Easca na mBó
+43.
+Askinch Lower
+Easca Fhuinsinn Íochtarach
+44.
+Askinch Upper
+Easca Fhuinsinn Uachtarach
+45.
+Askinfarney [ED: The Leap]
+Easca na Fearna
+46.
+Askinfarney [ED: Templeludigan]
+Easca na Fearna
+47.
+Askingarran Lower
+Easca an Ghearráin Íochtarach
+48.
+Askingarran Upper
+Easca an Ghearráin Uachtarach
+49.
+Askinvillar Lower
+Easca an Bhiolair Íochtarach
+50.
+Askinvillar Upper
+Easca an Bhiolair Uachtarach
+51.
+Askunshin
+Easca an Fhuinsinn
+52.
+Assagart
+Agard Hae
+53.
+Assaly Great
+Áth Sáile Mór
+54.
+Assaly Little
+Áth Sáile Beag
+55.
+Aughathlappa
+Áth an tSlapa
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-luimnigh-2003.pdf
+
+
+6
+
+Caibidil 1
+(Chapter 1)
+
+Bailte Fearainn
+(Townlands)
+
+(Tugtar an toghroinn ceantair [TRC], agus ceantar contae [CC] nuair is gá, chun
+idirdhealú idir logainmneacha den litriú céanna)
+
+(The district electoral division [DED] is given, and the county district [CD] when
+necessary, to distinguish placenames with the same spelling)
+
+
+
+Colún 1
+Béarla
+(Column 1
+English language)
+
+Colún 2
+Gaeilge
+(Column 2
+Irish language)
+1
+Abbey
+An Mhainistir
+2
+Abbeyfarm
+Feirm na Mainistreach
+3
+Abbeyfeale East
+Mainistir na Féile Thoir
+4
+Abbeyfeale West
+Mainistir na Féile Thiar
+5
+Abbeylands
+Cluain na mBráthar
+6
+Abington
+Mainistir Uaithne
+7
+Acres
+Na hAcraí
+8
+Adamstown
+Baile Adaim
+9
+Adamswood
+Coill Adaim
+10
+Adare
+Áth Dara
+11
+Aghalacka
+An tÁth Leacach
+12
+Ahabeg
+Achadh Beag
+13
+Ahabeg (Rose)
+Achadh Beag (Rose)
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-mhaigh-eo-2015-dreacht.pdf
+
+6
+
+35
+Aillemore
+An Aill Mhór
+36
+Allowan Island
+Alúin
+37
+Altbaun
+An tAllt Bán
+38
+Altderg
+An tAllt Dearg
+39
+Altnabrocky
+Allt na Brocaí
+40
+Annagh [ED: Ballinrobe]
+An tEanach
+41
+Annagh [ED: Cloonkeen]
+An tEanach
+42
+Annagh [ED: Coolnahaha]
+An tEanach
+43
+Annagh Beg
+An tEanach Beag
+44
+Annagh East Island
+An tEanach Thoir
+45
+Annagh Hill
+Eanach Each
+46
+Annagh Island [ED: Carrowmore]
+An tEanach
+47
+Annagh Island [ED: Ballycroy South]
+Oileán an Eanaigh
+48
+Annagh Middle Island
+An tEanach Láir
+49
+Annagh More
+An tEanach Mór
+50
+Annagh West Island
+An tEanach Thiar
+51
+Annaghroe Island
+An tEanach Rua
+52
+Annaghteige Island
+Eanach Thaidhg
+53
+Annalecka
+Áth na Leice
+54
+Annefield
+Sceach na Gaoithe
+55
+Annies
+Na hEanaigh
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-mhuineachain-2003.pdf
+
+ 6
+
+Caibidil 1
+(Chapter 1)
+
+Bailte Fearainn
+(Townlands)
+
+(Tugtar an toghroinn ceantair [TRC], agus ceantar contae [CC] nuair is gá, chun
+idirdhealú idir logainmneacha den litriú céanna)
+
+(The district electoral division [DED] is given, and the county district [CD] when
+necessary, to distinguish placenames with the same spelling)
+
+
+
+Colún 1
+Béarla
+(Column 1
+English language)
+
+Colún 2
+Gaeilge
+(Column 2
+Irish language)
+1
+Acres [DED: Ballybay Rural]
+Na hAcraí [TRC: Béal Átha Beithe
+(Tuath)]
+2
+Acres [DED: Sheskin]
+Na hAcraí [TRC: An Seisceann]
+3
+Aghabog
+Achadh Bog
+4
+Aghaboy [DED: Bellanode]
+Achadh Buí [TRC: Béal Átha an Fhóid]
+5
+Aghaboy [DED: Emyvale]
+Achadh Buí [TRC: Scairbh na
+gCaorach]
+6
+Aghaboy North
+Achadh Buí Thuaidh
+7
+Aghaboy South
+Achadh Buí Theas
+8
+Aghabrick
+Achadh an Bhroic
+9
+Aghaclay
+Achadh Cléithe
+10
+Aghaclogha
+Achadh Clochach
+11
+Aghacloghan
+Áth an Chlocháin
+12
+Aghaderry
+Achadh Doire
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-na-gaillimhe-2012-dreacht.pdf
+
+6
+
+35
+Aghalateeve
+Achadh Leataoibh
+36
+Aghanahil
+Achadh Leamhchoille
+37
+Aghany
+Achanna
+38
+Aghlisk
+Eachlaisc
+39
+Aghrane or Castlekelly
+Achadh Raithin
+40
+Agrimhill
+Fardhroim
+41
+Ahanduff Beg
+An tÁthán Dubh Beag
+42
+Ahanduff More
+An tÁthán Dubh Mór
+43
+Ahapouleen
+Achadh Pholl Lín
+44
+Ahascragh East
+Áth Eascrach Thoir
+45
+Ahascragh West
+Áth Eascrach Thiar
+46
+Ahaun
+An tÁthán
+47
+Ahgloragh
+An tÁth Glórach
+48
+Aille [ED: Aille]
+An Aill
+49
+Aille [ED: Doonbally]
+An Aill
+50
+Aille [ED: Kilteskill]
+An Aill
+51
+Aillebrack
+An Aill Bhreac
+52
+Aillenaveagh
+Aill na bhFiach
+53
+Airgloony
+Iar Cluana
+54
+Alleendara West
+Aillín Darach Thiar
+55
+Alleendarra East
+Aillín Darach Thoir
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-phort-lairge-2003.pdf
+
+
+6
+
+Caibidil 1
+(Chapter 1)
+
+Bailte Fearainn
+(Townlands)
+
+(Tugtar an toghroinn ceantair [TRC], agus ceantar contae [CC] nuair is gá, chun
+idirdhealú idir logainmneacha den litriú céanna)
+
+(The district electoral division [DED] is given, and the county district [CD] when
+necessary, to distinguish placenames with the same spelling)
+
+
+Colún 1
+Béarla
+(Column 1
+English language)
+
+Colún 2
+Gaeilge
+(Column 2
+Irish language)
+1
+Abartagh
+Abartach
+2
+Abbeylands
+Fearann na Mainistreach
+3
+Abbeyside
+Dún na Mainistreach
+4
+Acres
+Na hAcraí
+5
+Adamstown
+Baile Adáim
+6
+Addrigoole
+Eadarghabháil
+7
+Adramone Beg
+Eadarmóin Bheag
+8
+Adramone More
+Eadarmóin Mhór
+9
+Affane
+Áth Mheáin
+10
+Affane Hunter
+Áth Mheáin (Hunter)
+11
+Aglish [DED: Castlerichard]
+An Eaglais [TRC: Caisleán Risteird]
+12
+Aglish [DED: Dromana]
+An Eaglais [TRC: Drom Eanaigh]
+13
+Ahanaglogh
+Áthán na gCloch
+14
+Ahaun [DED: Ballyduff]
+An tÁthán [TRC: An Baile Dubh]
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-shligigh-2019-dreacht.pdf
+
+
+35
+Ardconnell
+Ard Chonaill
+36
+Ardcotten
+Ard Coitinn
+37
+Ardcree
+Ard Craoibhe
+38
+Ardcumber
+Ard Chomair
+39
+Ardcurley
+Ard Mhic Thoirealaigh
+40
+Ardgallin
+Ard Uí Ghaillín
+41
+Ardgivna
+Ard Gaibhne
+42
+Ardkeeran [ED: Kilshalvy]
+Ard Corráin
+43
+Ardkeeran [ED: Riverstown]
+Ard Caorthainn
+44
+Ardkill
+Ard Chille
+45
+Ardlee
+Ard Lao
+46
+Ardleebeg
+Ard Lao Beag
+47
+Ardline
+Ard Laighean
+48
+Ardlona
+Ard Lóna
+49
+Ardloy
+Ard Láí
+50
+Ardminnan
+Ard Mionnáin
+51
+Ardmoyle
+Ard Maol
+52
+Ardnaglass
+Ard na nGlas
+53
+Ardnaglass Lower
+Ard na nGlas Íochtarach
+54
+Ardnaglass Upper
+Ard na nGlas Uachtarach
+55
+Ardneeskan
+Ard Naoscan
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-thiobraid-arann-2005.pdf
+
+
+6
+
+Caibidil 1
+(Chapter 1)
+
+Bailte Fearainn
+(Townlands)
+
+(Tugtar an toghroinn [T], agus ceantar contae [CC] nuair is gá, chun idirdhealú
+idir logainmneacha den litriú céanna)
+
+(The district electoral division [DED] is given, and the county district [CD] when
+necessary, to distinguish placenames with the same spelling)
+
+
+
+Colún 1
+Béarla
+(Column 1
+English language)
+
+Colún 2
+Gaeilge
+(Column 2
+Irish language)
+1
+ Abbeville
+ Baile an Phíopaire
+2
+ Acraboy
+ An tAcra Buí
+3
+ Acrenakirka
+ Acra an Chircigh
+4
+ Adamstown
+ Baile Ádaim
+5
+ Addane
+ Ádán
+6
+ Affoley
+ An Athbhuaile
+7
+ Aghnameadle
+ Áth na Méadal
+8
+ Aghsmear
+ Áth na Sméar
+9
+ Ahane
+ Áthán
+10
+ Ahenny
+ Áth Eine
+11
+ Ahenny Little
+ Áth Eine Beag
+12
+ Alleen (Hogan)
+ Aillín Uí Ógáin
+13
+ Alleen (Ryan)
+ Aillín Uí Riain
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-contae-uibh-fhaili-2003.pdf
+
+6
+
+Caibidil 1
+(Chapter 1)
+
+Bailte Fearainn
+(Townlands)
+
+(Tugtar an toghroinn ceantair [TRC], agus ceantar contae [CC] nuair is gá, chun
+idirdhealú idir logainmneacha den litriú céanna)
+
+(The district electoral division [DED] is given, and the county district [CD] when
+necessary, to distinguish placenames with the same spelling)
+
+
+
+Colún 1
+Béarla
+(Column 1
+English language)
+
+Colún 2
+Gaeilge
+(Column 2
+Irish language)
+1
+Acantha
+Áth an Chiontaigh
+2
+Adruel
+Eadrúill
+3
+Agall
+Áth Gall
+4
+Aghaboy
+Achadh Buí
+5
+Aghadonagh
+Achadh Donncha
+6
+Aghadouglas
+Achadh Dúghlas
+7
+Aghafin
+Achadh Fionn
+8
+Aghagoogy
+Ard Guaige
+9
+Aghagurty
+Áth an Ghorta
+10
+Aghalusky
+Achadh Loiscthe
+
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-cuigi-agus-contaetha-2003.pdf
+
+  6
+Caibidil 2
+(Chapter 2)
+
+Contaetha
+(Counties)
+
+
+
+Colún 1
+Béarla
+(Column 1
+English language)
+
+Colún 2
+Gaeilge
+(Column 2
+Irish language)
+1
+Carlow
+County Carlow
+Ceatharlach
+Contae Cheatharlach
+2
+Cavan
+County Cavan
+An Cabhán
+Contae an Chabháin
+3
+Clare
+County Clare
+An Clár
+Contae an Chláir
+4
+Cork
+County Cork
+Corcaigh
+Contae Chorcaí
+5
+Donegal
+County Donegal
+Dún na nGall
+Contae Dhún na nGall
+6
+Dublin
+County Dublin
+Baile Átha Cliath
+Contae Bhaile Átha Cliath
+7
+Galway
+County Galway
+Gaillimh
+Contae na Gaillimhe
+8
+Kerry
+County Kerry
+Ciarraí
+Contae Chiarraí
+9
+Kildare
+County Kildare
+Cill Dara
+Contae Chill Dara
+10
+Kilkenny
+County Kilkenny
+Cill Chainnigh
+Contae Chill Chainnigh
+
+FILE NAME ./placenames/placenames/an-tordu-logainmneacha-larionaid-daonra-agus-duichi-2005.pdf
+
+
+6
+
+Caibidil 1
+(Chapter 1)
+
+Contae na Gaillimhe (logainmneacha Gaeltachta breise amháin)
+(County Galway (additional Gaeltacht placenames only))
+
+
+
+Colún 1
+Béarla
+(Column 1
+English language)
+
+Colún 2
+Gaeilge
+(Column 2
+Irish language)
+
+a) Bailte fearainn
+a) (Townlands)
+
+1
+Boleynasruhaun
+Buaile na Sruthán
+2
+Derryvoreada
+Doire Bhó Riada
+3
+Kilroghter
+Coill Uachtair
+
+b) Toghranna, Cathair na Gaillimhe
+b) (Electoral Divisions, Galway city)
+
+1
+Ballybrit
+Baile an Bhriotaigh
+2
+Barna
+Bearna
+3
+Castlegar
+An Caisleán Gearr
+4
+Knocknacarragh
+Cnoc na Cathrach
+5
+St. Nicholas
+Toghroinn San Niocláis
