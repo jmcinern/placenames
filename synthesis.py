@@ -30,7 +30,7 @@ df = pd.read_csv(csv_path,encoding='utf-8')
 '''
 
 # 2. get first 20 placenames
-placenames = df['Logainm'].head(2).tolist()
+placenames = df['Logainm'].head(5).tolist()
 print(placenames)
 
 # 3. Set up promp template for sentence generation, Langchain etc
@@ -41,7 +41,7 @@ example_prompt = ChatPromptTemplate.from_messages([
 
 #read ./examples.json with "placename" and "sentences" keys
 import json
-with open("./examples.json", "r") as f:
+with open("./examples.json", "r", encoding="utf-8") as f:
     examples = json.load(f)
 
 few_shot_prompt = FewShotChatMessagePromptTemplate(
@@ -64,16 +64,19 @@ with open("./secrets.json", "r") as f:
 openai.api_key = secrets[0]["open_ai"]
 
 # mini = bigger than nano
-gpt_nano = ChatOpenAI(
+gpt_mini = ChatOpenAI(
     model_name="gpt-4.1-mini",
     temperature=0.9,
     openai_api_key=openai.api_key)
 
-chain_nano = full_prompt | gpt_nano
+claude_key = secrets[0]["anthropic"]
+#claude_4 
+
+chain_mini = full_prompt | gpt_mini
 
 # 4. generate 20 X 5 sentences
 def generate_sentences(place_name):
-    response = chain_nano.invoke({"question": f"Placename: {place_name}"})
+    response = chain_mini.invoke({"question": f"Placename: {place_name}"})
     return response.content
 
 # store resulting sentences in a DataFrame
