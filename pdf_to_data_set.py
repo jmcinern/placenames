@@ -93,7 +93,7 @@ def pdf_to_place_names_list(fn_name_pdf):
             lines = page.get_text().split("\n")
             # print(lines)
             i = 0
-            while i < len(lines) - 2:
+            while i + 3 < len(lines):
                 if (
                     is_number(lines[i])
                     and is_valid_name(lines[i + 1])
