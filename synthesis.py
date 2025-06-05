@@ -1,123 +1,123 @@
-'''
-1. Read in CSV with place names
-2. get first 20 placenames
-3. Set up promp template for sentence generation, Langchain etc
-4. generate 20 X 5 sentences 
-    a. Claude 4 vs Nano
-    b. Sampling method: top_p, temperature, previous examples.
-5. examine the sentences
-6. save the sentences to a CSV file
-'''
-
-# 1. Read in CSV with place names
+import json
 import pandas as pd
+from tqdm import tqdm
 from langchain.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
 from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 import openai
-from tqdm import tqdm
+from feature_matrix import IrishFeatureMatrix
 
-csv_path = "./placenames.csv"
-df = pd.read_csv(csv_path,encoding='utf-8')
-# print(df.head())
+# Load secrets
+with open("secrets.json", "r", encoding="utf-8") as f:
+    secrets = json.load(f)[0]
 
-'''
-                Ceantar               Logainm
-0  ceantair ghaeltachta  Sruthán Áth na Circe
-1  ceantair ghaeltachta           An Eatharla
-2  ceantair ghaeltachta     Aill an Bhlácaigh
-3  ceantair ghaeltachta         Aill an Phúca
-4  ceantair ghaeltachta      Aill an Chlogáis
-'''
+openai.api_key = secrets["open_ai"]
 
-# 2. get first 20 placenames
-placenames = df['Logainm'].head(5).tolist()
-print(placenames)
+# Initialize feature matrix
+irish_matrix = IrishFeatureMatrix()
 
-# 3. Set up promp template for sentence generation, Langchain etc
-example_prompt = ChatPromptTemplate.from_messages([
-    ("human", "Placename: {placename}?"),
-    ("assistant", "{sentences}")
-])
-
-#read ./examples.json with "placename" and "sentences" keys
-import json
-with open("./examples.json", "r", encoding="utf-8") as f:
+# Load examples from JSON
+with open("examples.json", "r", encoding="utf-8") as f:
     examples = json.load(f)
 
-few_shot_prompt = FewShotChatMessagePromptTemplate(
-    examples=examples,
-    example_prompt=example_prompt,
-)
-
-with open ("./system_message.txt", "r") as f:
+# Load system message
+with open("system_message.txt", "r", encoding="utf-8") as f:
     system_message = f.read()
 
-full_prompt = ChatPromptTemplate.from_messages([
-  ("system", system_message),
-  few_shot_prompt,
-  ("human", "{question}"),
+def format_features(feature_row):
+    """Format feature combination for the prompt"""
+    return f"Person: {feature_row['person']}, Verb: {feature_row['verb']}, Preposition: {feature_row['preposition']}, Case: {feature_row['case']}, Tense: {feature_row['tense']}"
+
+# Create example prompt template
+example_prompt = ChatPromptTemplate.from_messages([
+    ("human", "Placename: {placename}"),
+    ("assistant", "{sentence}")
 ])
 
-with open("./secrets.json", "r") as f:
-    secrets = json.load(f)
+# Create few-shot prompt with examples
+few_shot_prompt = FewShotChatMessagePromptTemplate(
+    example_prompt=example_prompt,
+    examples=examples,
+)
 
-openai.api_key = secrets[0]["open_ai"]
+# Create the full prompt template
+full_prompt = ChatPromptTemplate.from_messages([
+    ("system", system_message),
+    few_shot_prompt,
+    ("human", "Placename: {placename}\nTense: {tense}\nFeatures: {features}")
+])
 
-# mini = bigger than nano
-gpt_mini = ChatOpenAI(
-    model_name="gpt-4.1-mini",
+# Initialize model
+claude = ChatAnthropic(
+    model="claude-sonnet-4-20250514",
     temperature=0.9,
-    openai_api_key=openai.api_key)
+    api_key=secrets["anthropic"]
+)
 
-claude_key = secrets[0]["anthropic"]
-#claude_4 
+# Create chains
+chain_claude = full_prompt | claude
 
-chain_mini = full_prompt | gpt_mini
+def generate_sentence_with_chain(chain, place_name, model_label):
+    """Generate one sentence for a placename with random features"""
+    # Sample random features (including tense)
+    features = irish_matrix.sample_random_combination()
+    features_text = format_features(features)
+    
+    # Generate sentence
+    resp = chain.invoke({
+        "placename": place_name,
+        "tense": features['tense'],
+        "features": features_text
+    })
+    
+    sentence = resp.content.strip()
+    
+    print(f"{place_name} ({model_label}): {sentence}")
+    print(f"Features: {features_text}\n")
+    
+    return {
+        "placename": place_name,
+        "sentence": sentence,
+        "model": model_label,
+        "person": features['person'],
+        "verb": features['verb'],
+        "preposition": features['preposition'],
+        "case": features['case'],
+        "tense": features['tense']
+    }
 
-# 4. generate 20 X 5 sentences
-def generate_sentences(place_name):
-    response = chain_mini.invoke({"question": f"Placename: {place_name}"})
-    return response.content
-
-# store resulting sentences in a DataFrame
-results_df = pd.DataFrame(columns=['placename', 'model', 'Aimsir Cháite', 'Aimsire Láithreach', 'Aimsir Fháistineach', 'Aimsir Gnáth Cháite', "Aimsir Gnáth Láithreach"])
-
-placenames_list = []
-model_list = []
-aimsir_chaite_list = []
-aimsir_laithreach_list = []
-aimsir_fhastineach_list = []
-aimsir_gnath_chaite_list = []
-aimsir_gnath_laithreach_list = []
-
-for pn in tqdm(placenames):
-    placenames_list.append(pn)
-    model_list.append("gpt-4.1-mini")
-
-    # generate synthetic sentences
-    response = generate_sentences(pn)
-
-    sentences = response.split('\n')
-    aimsir_chaite_list.append(sentences[0])
-    aimsir_laithreach_list.append(sentences[1])
-    aimsir_fhastineach_list.append(sentences[2])
-    aimsir_gnath_chaite_list.append(sentences[3])
-    aimsir_gnath_laithreach_list.append(sentences[4])
-
-# add the results to the DataFrame
-results_df['placename'] = placenames_list
-results_df['model'] = model_list
-results_df['Aimsir Cháite'] = aimsir_chaite_list
-results_df['Aimsire Láithreach'] = aimsir_laithreach_list
-results_df['Aimsir Fháistineach'] = aimsir_fhastineach_list
-results_df['Aimsir Gnáth Cháite'] = aimsir_gnath_chaite_list
-results_df['Aimsir Gnáth Láithreach'] = aimsir_gnath_laithreach_list
-
-# write the DataFrame to a CSV file
-output_csv_path = "./synthetic_sentences.csv"
-results_df.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
-print(f"Results saved to {output_csv_path}")
-
-
-
-
+# Main execution
+if __name__ == "__main__":
+    # Load placenames
+    csv_path = "./placenames.csv"
+    df = pd.read_csv(csv_path, encoding='utf-8')
+    
+    # Select first 20 placenames
+    placenames_list = df['Logainm'].head(100).tolist()
+    
+    print(f"Generating sentences for {len(placenames_list)} placenames...")
+    print(f"Feature matrix has {len(irish_matrix.feature_matrix):,} possible combinations")
+    print()
+    
+    rows = []
+    
+    # Generate sentences for each placename with both models
+    for pn in tqdm(placenames_list, desc="Processing placenames"):
+        # Generate with Claude
+        try:
+            result_claude = generate_sentence_with_chain(chain_claude, pn, claude.model)
+            rows.append(result_claude)
+        except Exception as e:
+            print(f"Error with Claude for {pn}: {e}")
+    
+    # Create DataFrame
+    results_df = pd.DataFrame(rows)
+    
+    # Save results
+    output_csv_path = f"./synthetic_sentences_{claude.model}.csv"
+    results_df.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
+    
+    print(f"\nResults saved to {output_csv_path}")
+    print(f"Generated {len(results_df)} sentences total")
+    print(f"Models used: {results_df['model'].value_counts().to_dict()}")
+    print(f"Tenses used: {results_df['tense'].value_counts().to_dict()}")
