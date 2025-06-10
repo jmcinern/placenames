@@ -325,9 +325,6 @@ def process_in_batches(placenames_list, batch_size=BATCH_SIZE, batch_delay=BATCH
 
 # Main execution
 if __name__ == "__main__":
-
-    # Add at the beginning of main execution
-if __name__ == "__main__":
     print("=== DEBUG START ===")
     
     # Test API key
