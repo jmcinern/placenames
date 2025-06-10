@@ -95,9 +95,9 @@ BATCH_DELAY = 65        # Seconds between batches
 3. **`simple_system_message.txt`**: System prompt for simple mode
    ```
    You are an Irish language model. Generate 1 Irish sentence containing the given placename.
-  Return only the Irish sentence.
-  The following sentences are sentences that you have already generated, in order to maximise statistical
-  variation in language. Generate a new sentence that differs from these sentences in terms of VERB, TENSE(past, present, future, habitual, conditional), STRUCTURE, THEME. Remember, 1 sentence per place name and vary verb, avoid using verb from previous sentences.
+    Return only the Irish sentence.
+    The following sentences are sentences that you have already generated, in order to maximise statistical
+    variation in language. Generate a new sentence that differs from these sentences in terms of VERB, TENSE(past, present, future, habitual, conditional), STRUCTURE, THEME. Remember, 1 sentence per place name and vary verb, avoid using verb from previous sentences.
    ```
 
 ## Output
