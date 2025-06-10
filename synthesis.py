@@ -2,15 +2,12 @@ import json
 import pandas as pd
 from tqdm import tqdm
 from langchain.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
-from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
-import openai
 import random
 import time
-from feature_matrix import IrishFeatureMatrix
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import multiprocessing
 import threading
+import os
 
 # Configuration flags
 do_sampling = True
@@ -25,11 +22,13 @@ BATCH_DELAY = 65  # Seconds between batches
 with open("secrets.json", "r", encoding="utf-8") as f:
     secrets = json.load(f)[0]
 
-openai.api_key = secrets["open_ai"]
+#openai.api_key = secrets["open_ai"]
 
+'''
 # Initialize feature matrix (only if not using just_sample)
 if not just_sample:
     irish_matrix = IrishFeatureMatrix()
+  '''  
 
 # Load examples from JSON
 with open("examples.json", "r", encoding="utf-8") as f:
@@ -120,13 +119,32 @@ def create_prompt_template(include_previous=False, simple_mode=False):
                 few_shot_prompt,
                 ("human", "Placename: {placename}\nTense: {tense}\nFeatures: {features}")
             ])
+def get_anthropic_api_key():
+    """Get Anthropic API key from environment or secrets file"""
+    # Try environment variable first
+    api_key = os.getenv('ANTHROPIC_API_KEY')
+    if api_key:
+        return api_key
+    
+    # Try secrets file as fallback
+    try:
+        with open("secrets.json", "r", encoding="utf-8") as f:
+            secrets = json.load(f)[0]
+            return secrets["anthropic"]
+    except FileNotFoundError:
+        raise FileNotFoundError(
+            "No Anthropic API key found. Either:\n"
+            "1. Set ANTHROPIC_API_KEY environment variable, or\n"
+            "2. Create secrets.json file"
+        )
+    
 CLAUDE_MODEL = "claude-3-haiku-20240307" #"claude-3-5-haiku-20241022" # "claude-3-haiku-20240307"
 def create_claude_instance():
     """Create a new Claude instance for each thread"""
     return ChatAnthropic(
         model= CLAUDE_MODEL,	# "claude-3-5-haiku-20241022",
         temperature=0.9,
-        api_key=secrets["anthropic"]
+        api_key=get_anthropic_api_key()
     )
 
 def generate_sentence_for_placename(args):
@@ -149,12 +167,13 @@ def generate_sentence_for_placename(args):
         }
         
         # Add features only if not in simple mode
+        '''
         if not simple_mode:
             features = irish_matrix.sample_random_combination()
             features_text = format_features(features)
             invoke_params["tense"] = features['tense']
             invoke_params["features"] = features_text
-        
+        '''
         # Add previous sentences if sampling is enabled
         if use_sampling:
             previous = sample_previous_sentences(10)
@@ -174,8 +193,10 @@ def generate_sentence_for_placename(args):
             add_to_sentence_history(sentence)
         
         print(f"{placename} ({claude.model}): {sentence}")
+        '''
         if not simple_mode:
             print(f"Features: {format_features(features)}")
+        '''
         print()
         
         # Return appropriate dictionary based on mode
@@ -184,7 +205,7 @@ def generate_sentence_for_placename(args):
             "sentence": sentence,
             "model": claude.model
         }
-        
+        '''
         if not simple_mode:
             base_result.update({
                 "person": features['person'],
@@ -193,6 +214,7 @@ def generate_sentence_for_placename(args):
                 "case": features['case'],
                 "tense": features['tense']
             })
+            '''
         
         return base_result
         
@@ -271,8 +293,9 @@ if __name__ == "__main__":
     print(f"Batch size: {BATCH_SIZE} placenames per batch")
     print(f"Batch delay: {BATCH_DELAY} seconds between batches")
     print(f"Estimated total time: {len(placenames_list)//BATCH_SIZE * BATCH_DELAY / 60:.1f} minutes")
-    if not just_sample:
+    '''if not just_sample:
         print(f"Feature matrix has {len(irish_matrix.feature_matrix):,} possible combinations")
+        '''
     print(f"Mode: {'SIMPLE SAMPLING' if just_sample else 'FEATURE MATRIX'}")
     print(f"Sentence sampling: {'ENABLED' if do_sampling else 'DISABLED'}")
     print()
