@@ -1,22 +1,26 @@
 [
   {
     "placename": "Baile an Dúna",
-    "sentences": "Tháinig muid go Baile an Dúna le haghaidh an fhéile.\nTá cóisir mhór i mBaile an Dúna anocht.\nRachaidh mé go Baile an Dúna Dé Sathairn seo chugainn.\nThagadh mo thuismitheoirí go minic go Baile an Dúna.\nTagann na daltaí go Baile an Dúna gach samhradh."
+    "sentence": "Tháinig muid go Baile an Dúna le haghaidh an fhéile."
   },
   {
-    "placename": "An Teach Mór",
-    "sentences": "Chónaigh sí i dTeach Mór roimh an gcluiche.\nTá cruinniú ar siúl in Teach Mór faoi láthair.\nBeidh ceolchoirm ar siúl in Teach Mór Dé hAoine.\nBhíodh sé ag obair in Teach Mór le blianta.\nBíonn cóisirí móra in Teach Mór go minic."
+    "placename": "An Teach Mór", 
+    "sentence": "Bhíodh sé ag obair in Teach Mór le blianta."
   },
   {
     "placename": "Loch Bhaile Uí Chuirc",
-    "sentences": "Chaith muid an deireadh seachtaine ag Loch Bhaile Uí Chuirc.\nTá siad ag iascaireacht ag Loch Bhaile Uí Chuirc anois.\nRachaidh an chlann ag campáil ag Loch Bhaile Uí Chuirc an mhí seo chugainn.\nBhíodh seandaoine ag siúl timpeall Loch Bhaile Uí Chuirc gach tráthnóna.\nTagann turasóirí go Loch Bhaile Uí Chuirc gach bliain."
+    "sentence": "Tá siad ag iascaireacht ag Loch Bhaile Uí Chuirc anois."
   },
   {
     "placename": "Chatha",
-    "sentences": "Bhuaileamar le chéile i gChatha anuraidh.\nTá sé ina chónaí i gChatha anois.\nRachaidh siad ar ais go Chatha nuair a bheidh an samhradh thart.\nThagadh sí go Chatha gach deireadh seachtaine.\nTagann bus go Chatha gach uair an chloig."
+    "sentence": "Tagann bus go Chatha gach uair an chloig."
   },
   {
     "placename": "Oileán na Sceach",
-    "sentences": "Tháinig na turasóirí go Oileán na Sceach inné.\nTá na páistí ag snámh in Oileán na Sceach faoi láthair.\nBeidh imeachtaí cultúrtha ar siúl in Oileán na Sceach an tseachtain seo chugainn.\nBhíodh cónaí ar m'uncail in Oileán na Sceach.\nBíonn féilte traidisiúnta ar siúl in Oileán na Sceach gach bliain."
+    "sentence": "Bíonn féilte traidisiúnta ar siúl in Oileán na Sceach gach bliain."
+  },
+  {
+    "placename": "Caisleán Aircín",
+    "sentence": "Tógfar eastáit nua tithíochta i gCaisleán Aircín an bhliain seo chugainn."
   }
 ]
