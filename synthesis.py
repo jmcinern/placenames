@@ -299,7 +299,7 @@ def process_in_batches(placenames_list, batch_size=BATCH_SIZE, batch_delay=BATCH
             intermediate_df = pd.DataFrame(all_results)
             mode_suffix = "_simple" if just_sample else "_features"
             sampling_suffix = "_sampling" if do_sampling else ""
-            intermediate_csv = f"./synthetic_sentences_{CLAUDE_MODEL}{mode_suffix}{sampling_suffix}_batch_{batch_num + 1}.csv"
+            intermediate_csv = f"./synthesis/synthetic_sentences_{CLAUDE_MODEL}{mode_suffix}{sampling_suffix}_batch_{batch_num + 1}.csv"
             intermediate_df.to_csv(intermediate_csv, index=False, encoding="utf-8-sig")
             print(f"Intermediate results saved to {intermediate_csv}")
 
@@ -325,6 +325,8 @@ def process_in_batches(placenames_list, batch_size=BATCH_SIZE, batch_delay=BATCH
 
 # Main execution
 if __name__ == "__main__":
+
+    
     # Test API key first
     try:
         test_key = get_anthropic_api_key()
@@ -343,7 +345,7 @@ if __name__ == "__main__":
     df = pd.read_csv(csv_path, encoding="utf-8")
 
     # Select first n_generated placenames
-    placenames_list = df["Logainm"].head(n_generated).tolist()
+    placenames_list = df["Logainm"].tolist()
 
     print(f"Generating sentences for {len(placenames_list)} placenames...")
     print(f"Batch size: {BATCH_SIZE} placenames per batch")
@@ -369,7 +371,7 @@ if __name__ == "__main__":
     # Create output filename based on flags
     mode_suffix = "_simple" if just_sample else "_features"
     sampling_suffix = "_sampling" if do_sampling else ""
-    output_csv_path = f"./synthetic_sentences_claude_{CLAUDE_MODEL}_{mode_suffix}{sampling_suffix}_final.csv"
+    output_csv_path = f"./synthesis/synthetic_sentences_claude_{CLAUDE_MODEL}_{mode_suffix}{sampling_suffix}_final.csv"
     results_df.to_csv(output_csv_path, index=False, encoding="utf-8-sig")
 
     print(f"\n{'='*60}")

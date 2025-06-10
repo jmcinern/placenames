@@ -2,7 +2,7 @@
 #SBATCH --job-name=placenames_synthesis_30k
 #SBATCH --output=./out/placenames_synthesis_%j.out
 #SBATCH --error=./err/placenames_synthesis_%j.err
-#SBATCH --time=00:10:00
+#SBATCH --time=00:02:00
 #SBATCH --partition=k2-lowpri  # Changed from k2-gpu-v100
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
