@@ -1,3 +1,5 @@
 ./placenames
 placenames.zip
 ./secrets.toml
+secrets.json
+*.env
