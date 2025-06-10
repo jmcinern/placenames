@@ -18,10 +18,6 @@ n_generated = 100
 BATCH_SIZE = 40  # Stay safely under 50 RPM
 BATCH_DELAY = 65  # Seconds between batches
 
-# Load secrets
-with open("secrets.json", "r", encoding="utf-8") as f:
-    secrets = json.load(f)[0]
-
 #openai.api_key = secrets["open_ai"]
 
 '''
@@ -263,7 +259,7 @@ def process_in_batches(placenames_list, batch_size=BATCH_SIZE, batch_delay=BATCH
             intermediate_df = pd.DataFrame(all_results)
             mode_suffix = "_simple" if just_sample else "_features"
             sampling_suffix = "_sampling" if do_sampling else ""
-            intermediate_csv = f"./synthetic_sentences_claude-3-5-haiku-20241022{mode_suffix}{sampling_suffix}_batch_{batch_num + 1}.csv"
+            intermediate_csv = f"./synthetic_sentences_{CLAUDE_MODEL}{mode_suffix}{sampling_suffix}_batch_{batch_num + 1}.csv"
             intermediate_df.to_csv(intermediate_csv, index=False, encoding='utf-8-sig')
             print(f"Intermediate results saved to {intermediate_csv}")
         
