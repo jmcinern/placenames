@@ -326,6 +326,40 @@ def process_in_batches(placenames_list, batch_size=BATCH_SIZE, batch_delay=BATCH
 # Main execution
 if __name__ == "__main__":
 
+    # Add at the beginning of main execution
+if __name__ == "__main__":
+    print("=== DEBUG START ===")
+    
+    # Test API key
+    try:
+        api_key = get_anthropic_api_key()
+        print(f"✅ API key found: {api_key[:10]}...{api_key[-4:]}")
+    except Exception as e:
+        print(f"❌ API key error: {e}")
+        exit(1)
+    
+    # Test file loading
+    try:
+        with open("examples.json", "r", encoding="utf-8") as f:
+            examples = json.load(f)
+        print(f"✅ Examples loaded: {len(examples)} examples")
+    except Exception as e:
+        print(f"❌ Examples error: {e}")
+        exit(1)
+    
+    # Test single API call
+    try:
+        claude = create_claude_instance()
+        print(f"✅ Claude instance: {claude.model}")
+        
+        # Test simple prompt
+        test_resp = claude.invoke("Say 'test successful' in Irish")
+        print(f"✅ Test response: {test_resp.content}")
+    except Exception as e:
+        print(f"❌ API call error: {e}")
+        exit(1)
+    
+    print("=== DEBUG END ===")
     
     # Test API key first
     try:
