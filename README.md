@@ -38,7 +38,7 @@ This project generates diverse Irish language sentences incorporating Irish plac
 ### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/placenames.git
+git clone https://github.com/jmcinern/placenames.git
 cd placenames
 
 # Install dependencies
