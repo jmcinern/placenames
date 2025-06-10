@@ -1,54 +1,206 @@
-# Irish Placenames Extractor
+# Irish Placename Sentence Synthesis
 
-This project reads Irish place names from PDF files and creates a structured dataset with the aim of improving speech recognition and data synthesis. The overview was created with the help of copilot.
+A Python tool for generating synthetic Irish language sentences containing placenames using Claude AI, with advanced sampling mechanisms to ensure linguistic variation.
 
 ## Overview
 
-- **PDF Extraction & Processing:**  
-  The script reads PDFs from a designated folder, extracting raw text containing placenames.
+This project generates diverse Irish language sentences incorporating Irish placenames (logainmneacha) using Anthropic's Claude language model. The system uses sophisticated sampling techniques to maximize morphological, syntactical, and thematic variation while avoiding repetition.
 
-- **Text Cleaning & Parsing:**  
-  Utilizes regular expressions to remove unwanted punctuation and extraneous text, isolating the valid Irish placename pairs.
+## Features
 
-- **Dataset Creation:**  
-  Aggregates cleaned placename pairs into a structured CSV format for further processing or analysis.
+### 🎯 **Dual Generation Modes**
+- **Simple Sampling Mode**: Generates varied sentences using contextual sampling from previous outputs
+- **Feature Matrix Mode**: Uses structured grammatical features (person, verb, preposition, case, tense) for systematic variation
 
-## Project Structure
+### 🔄 **Advanced Sampling System**
+- **Repetition Avoidance**: Randomly samples from previously generated sentences to inform variation
+- **Thread-Safe Processing**: Concurrent sentence generation with shared sentence history
+- **Progressive Context**: Uses up to 10 previous sentences to guide new generation
 
-- **main.py:**  
-  Entry point for scanning the PDF directory, extracting placename pairs, and generating the CSV dataset.
+### ⚡ **Performance & Scalability**
+- **Batch Processing**: Respects API rate limits (40 requests per batch, 65-second delays)
+- **Parallel Processing**: Multi-threaded execution for faster generation
+- **Rate Limiting**: Built-in safeguards for API usage compliance
+- **Progress Tracking**: Real-time batch progress and completion estimates
 
-- **pdf_to_data_set.py:**  
-  Contains core functions for:
-  - Listing PDF file names,
-  - Parsing each PDF to extract placename data,
-  - Handling region-specific extraction and formatting.
+### 🛡️ **Production Ready**
+- **Environment Variable Support**: Secure API key management for deployment
+- **HPC/Slurm Compatible**: Ready for high-performance computing environments
+- **Intermediate Saves**: Automatic backup after each batch to prevent data loss
+- **Error Resilience**: Continues processing despite individual failures
 
-  - **test_placenames.py**
-    - Different PDF formats identified and analysed
-    - Manually exctracted sample placenames for each PDF type
-    - Edge cases identified:
-      
-        - With " or " indicating multple names
-        - Line breaks
-        - Multiline
-        - Standard and square brackets
-          
-## Getting Started
+## Installation
 
-1. **Setup:**  
-   Place your source PDF files with Irish placenames in the `./placenames/placenames` folder.
+### Prerequisites
+- Python 3.8+
+- Anthropic API key
 
-2. **Installation:**  
-   Install the required libraries as listed in the [requirements.txt](./requirements.txt).
+### Setup
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/placenames.git
+cd placenames
 
-3. **Run the Script:**  
-   Execute the main script to generate the dataset:
-   ```bash
-   python main.py
+# Install dependencies
+pip install -r requirements.txt
 
-4. Output:
-The output CSV file will contain the cleaned and structured placename pairs ready for further use.
+# Set up API key (choose one method)
+# Method 1: Environment variable (recommended for servers)
+export ANTHROPIC_API_KEY="your_anthropic_key_here"
 
-## TODO 
-- Generate synthetic text with the place names to train speech synthesis.
+# Method 2: Local secrets file (for development)
+echo '[{"anthropic": "your_anthropic_key_here"}]' > secrets.json
+```
+
+## Usage
+
+### Basic Configuration
+
+Edit the configuration flags in `synthesis.py`:
+
+```python
+# Configuration flags
+do_sampling = True      # Enable/disable sampling mechanism
+just_sample = True      # True = simple mode, False = feature matrix mode
+n_generated = 100       # Number of sentences to generate
+
+# Rate limiting
+BATCH_SIZE = 40         # Requests per batch (stay under 50 RPM)
+BATCH_DELAY = 65        # Seconds between batches
+```
+
+
+## Input Data
+
+### Required Files
+
+1. **`placenames.csv`**: CSV file containing Irish placenames
+   ```csv
+   Logainm
+   Baile Átha Cliath
+   Corcaigh
+   Gaillimh
+   ```
+
+2. **`examples.json`**: Few-shot examples for the model
+   ```json
+   [
+     {
+    "placename": "Baile an Dúna",
+    "sentences": "Tháinig muid go Baile an Dúna le haghaidh an fhéile.\nTá cóisir mhór i mBaile an Dúna anocht.\nRachaidh mé go Baile an Dúna Dé Sathairn seo chugainn.\nThagadh mo thuismitheoirí go minic go Baile an Dúna.\nTagann na daltaí go Baile an Dúna gach samhradh."
+    }
+   ]
+   ```
+
+3. **`simple_system_message.txt`**: System prompt for simple mode
+   ```
+   You are an Irish language model. Generate 1 Irish sentence containing the given placename.
+  Return only the Irish sentence.
+  The following sentences are sentences that you have already generated, in order to maximise statistical
+  variation in language. Generate a new sentence that differs from these sentences in terms of VERB, TENSE(past, present, future, habitual, conditional), STRUCTURE, THEME. Remember, 1 sentence per place name and vary verb, avoid using verb from previous sentences.
+   ```
+
+## Output
+
+### File Structure
+The system generates multiple output files:
+
+```
+synthetic_sentences_[model]_[mode]_[sampling]_batch_[N].csv    # Intermediate results
+synthetic_sentences_[model]_[mode]_[sampling]_final.csv       # Final results
+```
+
+### Output Format
+```csv
+placename,sentence,model
+Baile Átha Cliath,"Rachaidh mé go Baile Átha Cliath amárach.",claude-3-haiku-20240307
+Corcaigh,"Tá mo dheartháir ina chónaí i gCorcaigh.",claude-3-haiku-20240307
+```
+
+## Generation Modes
+
+### Simple Sampling Mode (`just_sample = True`)
+- Uses basic system prompt
+- Relies on sampling from previous sentences for variation
+- Faster and more cost-effective
+- Good for exploratory generation
+
+### Feature Matrix Mode (`just_sample = False`)
+- Uses structured grammatical constraints
+- Systematic coverage of linguistic features
+- More predictable variation patterns
+- Requires `feature_matrix.py` and `system_message.txt`
+
+## Performance
+
+### Timing Estimates
+- **100 placenames**: ~7 minutes (3 batches)
+- **1000 placenames**: ~27 minutes (25 batches)
+- **Rate limit compliance**: 40 requests/batch, 65s delays
+
+### Resource Requirements
+- **Memory**: 2-4GB recommended
+- **CPU**: Scales with available cores (up to 8 threads per batch)
+- **Network**: Stable internet for API calls
+
+## API Rate Limiting
+
+The system automatically handles Anthropic's rate limits:
+- **50 requests per minute** limit
+- **40 requests per batch** (safety margin)
+- **65-second delays** between batches
+- **Automatic retry logic** for temporary failures
+
+## Monitoring
+
+### Progress Tracking
+```
+Processing batch 3/25 (40 placenames)
+Total processed so far: 80/1000
+Progress: 80/1000 completed (8.0%)
+Next batch starts in: 65 seconds
+```
+
+### Log Files (HPC)
+- `synthesis_[jobid].out`: Standard output and progress
+- `synthesis_[jobid].err`: Error messages and warnings
+
+## Troubleshooting
+
+### Common Issues
+
+1. **API Key Error**
+   ```
+   No Anthropic API key found
+   ```
+   **Solution**: Set `ANTHROPIC_API_KEY` environment variable or create `secrets.json`
+
+2. **Rate Limit Exceeded**
+   ```
+   Rate limit exceeded
+   ```
+   **Solution**: Increase `BATCH_DELAY` or decrease `BATCH_SIZE`
+
+3. **Missing Files**
+   ```
+   FileNotFoundError: placenames.csv
+   ```
+   **Solution**: Ensure all required input files are present
+
+```
+
+
+
+
+## Citation
+
+If you use this tool in your research, please cite:
+
+```bibtex
+@software{irish_placename_synthesis,
+  title={Irish Placename Sentence Synthesis},
+  author={Joseph McInerney},
+  year={2024},
+  url={https://github.com/jmcinern/placenames}
+}
+```
