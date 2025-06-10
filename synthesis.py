@@ -278,6 +278,19 @@ def process_in_batches(placenames_list, batch_size=BATCH_SIZE, batch_delay=BATCH
 
 # Main execution
 if __name__ == "__main__":
+    # Test API key first
+    try:
+        test_key = get_anthropic_api_key()
+        print(f"API key found: {test_key[:10]}...{test_key[-4:]}")
+        
+        # Test a single API call
+        test_claude = create_claude_instance()
+        print(f"Claude instance created successfully: {test_claude.model}")
+    except Exception as e:
+        print(f"SETUP ERROR: {e}")
+        exit(1)
+    
+    # ... rest of your code
     # Load placenames
     csv_path = "./placenames.csv"
     df = pd.read_csv(csv_path, encoding='utf-8')
