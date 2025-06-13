@@ -46,6 +46,18 @@ pairs = df[['placename', 'sentence']].values
 | Leitir Ceanainn | Buaileann mé lena chairde i Leitir Ceanainn gach deireadh seachtaine. | claude-3-haiku-20240307 |
 | Paiteagó | Eagraítear seisiúin cheoil thraidisiúnta i bPaiteagó go rialta. | claude-3-haiku-20240307 |
 
+## Citation
+
+If you use this tool or dataset in your research, please cite:
+
+```bibtex
+@software{irish_placename_synthesis,
+  title={Irish Placename Sentence Synthesis},
+  author={Joseph McInerney},
+  year={2025},
+  url={https://github.com/jmcinern/placenames}
+}
+```
 ## Overview
 
 This project generates diverse Irish language sentences incorporating Irish placenames (logainmneacha) using Anthropic's Claude language model. The system uses sophisticated sampling techniques to maximize morphological, syntactical, and thematic variation while avoiding repetition.
@@ -241,20 +253,3 @@ Next batch starts in: 65 seconds
    ```
    **Solution**: Ensure all required input files are present
 
-```
-
-
-
-
-## Citation
-
-If you use this tool in your research, please cite:
-
-```bibtex
-@software{irish_placename_synthesis,
-  title={Irish Placename Sentence Synthesis},
-  author={Joseph McInerney},
-  year={2024},
-  url={https://github.com/jmcinern/placenames}
-}
-```
