@@ -2,6 +2,58 @@
 
 A Python tool for generating synthetic Irish language sentences containing placenames using Claude AI, with advanced sampling mechanisms to ensure linguistic variation.
 
+# 📊 The Dataset
+
+## Download & Access
+
+**📁 Dataset Repository**: https://github.com/jmcinern/placenames/tree/main/big_data
+
+The complete dataset of AI-generated Irish sentences with placenames is available for download as CSV files.
+
+### Dataset Schema
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `placename` | string | Irish placename (logainm) |
+| `sentence` | string | Generated Irish sentence containing the placename |
+| `model` | string | AI model used for generation |
+
+### Quick Start
+
+```python
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv('path/to/dataset.csv')
+
+# Extract sentences for language processing
+sentences = df['sentence'].tolist()
+
+# Filter by specific model
+claude_sentences = df[df['model'] == 'claude-3-haiku-20240307']['sentence']
+
+# Get placename-sentence pairs
+pairs = df[['placename', 'sentence']].values
+```
+
+## Sample Data
+
+| Irish Placename | Generated Sentence | Model |
+|----------------|-------------------|--------|
+| Cill Riáin | Bíonn ceolchoirmeacha traidisiúnta ar siúl i gCill Riáin gach Samhain. | claude-3-haiku-20240307 |
+| Leic Éime | Tá gréasán nua siúlóidí cruthaithe ag muintir Leic Éime le blianta beaga anuas. | claude-3-haiku-20240307 |
+| Leitir Beara | Tógadh foirgneamh nua suntasach i Leitir Beara an samhradh seo caite. | claude-3-haiku-20240307 |
+| Leitir Ceanainn | Buaileann mé lena chairde i Leitir Ceanainn gach deireadh seachtaine. | claude-3-haiku-20240307 |
+| Paiteagó | Eagraítear seisiúin cheoil thraidisiúnta i bPaiteagó go rialta. | claude-3-haiku-20240307 |
+To extract sentences:
+
+df = pd.read_csv('fpath')
+sentences = df['sentence']
+
+
+
+
+
 ## Overview
 
 This project generates diverse Irish language sentences incorporating Irish placenames (logainmneacha) using Anthropic's Claude language model. The system uses sophisticated sampling techniques to maximize morphological, syntactical, and thematic variation while avoiding repetition.
