@@ -45,14 +45,6 @@ pairs = df[['placename', 'sentence']].values
 | Leitir Beara | Tógadh foirgneamh nua suntasach i Leitir Beara an samhradh seo caite. | claude-3-haiku-20240307 |
 | Leitir Ceanainn | Buaileann mé lena chairde i Leitir Ceanainn gach deireadh seachtaine. | claude-3-haiku-20240307 |
 | Paiteagó | Eagraítear seisiúin cheoil thraidisiúnta i bPaiteagó go rialta. | claude-3-haiku-20240307 |
-To extract sentences:
-
-df = pd.read_csv('fpath')
-sentences = df['sentence']
-
-
-
-
 
 ## Overview
 
