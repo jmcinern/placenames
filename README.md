@@ -129,27 +129,29 @@ BATCH_DELAY = 65        # Seconds between batches
 2. **`examples.json`**: Few-shot examples for the model
    ```json
    [
-  {
-    "placename": "Baile an Dúna",
-    "sentence": "Tháinig muid go Baile an Dúna le haghaidh an fhéile."
-  },
-  {
-    "placename": "An Teach Mór", 
-    "sentence": "Bhíodh sé ag obair in Teach Mór le blianta."
-   },
-   {
-    "placename": "Caisleán Aircín",
-    "sentence": "Tógfar eastáit nua tithíochta i gCaisleán Aircín an bhliain seo chugainn."
-  }
+     {
+       "placename": "Baile an Dúna",
+       "sentence": "Tháinig muid go Baile an Dúna le haghaidh an fhéile."
+     },
+     {
+       "placename": "An Teach Mór", 
+       "sentence": "Bhíodh sé ag obair in Teach Mór le blianta."
+     },
+     {
+       "placename": "Caisleán Aircín",
+       "sentence": "Tógfar eastáit nua tithíochta i gCaisleán Aircín an bhliain seo chugainn."
+     }
    ]
    ```
 
 3. **`simple_system_message.txt`**: System prompt for simple mode
    ```
    You are an Irish language model. Generate 1 Irish sentence containing the given placename.
-    Return only the Irish sentence.
-    The following sentences are sentences that you have already generated, in order to maximise statistical
-    variation in language. Generate a new sentence that differs from these sentences in terms of VERB, TENSE(past, present, future, habitual, conditional), STRUCTURE, THEME. Remember, 1 sentence per place name and vary verb, avoid using verb from previous sentences.
+   Return only the Irish sentence.
+   The following sentences are sentences that you have already generated, in order to maximise 
+   statistical variation in language. Generate a new sentence that differs from these sentences 
+   in terms of VERB, TENSE (past, present, future, habitual, conditional), STRUCTURE, THEME. 
+   Remember, 1 sentence per place name and vary verb, avoid using verb from previous sentences.
    ```
 
 ## Output
