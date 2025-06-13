@@ -85,10 +85,18 @@ BATCH_DELAY = 65        # Seconds between batches
 2. **`examples.json`**: Few-shot examples for the model
    ```json
    [
-     {
+  {
     "placename": "Baile an Dúna",
-    "sentences": "Tháinig muid go Baile an Dúna le haghaidh an fhéile.\nTá cóisir mhór i mBaile an Dúna anocht.\nRachaidh mé go Baile an Dúna Dé Sathairn seo chugainn.\nThagadh mo thuismitheoirí go minic go Baile an Dúna.\nTagann na daltaí go Baile an Dúna gach samhradh."
-    }
+    "sentence": "Tháinig muid go Baile an Dúna le haghaidh an fhéile."
+  },
+  {
+    "placename": "An Teach Mór", 
+    "sentence": "Bhíodh sé ag obair in Teach Mór le blianta."
+   },
+   {
+    "placename": "Caisleán Aircín",
+    "sentence": "Tógfar eastáit nua tithíochta i gCaisleán Aircín an bhliain seo chugainn."
+  }
    ]
    ```
 
