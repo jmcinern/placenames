@@ -8,7 +8,7 @@ A Python tool for generating synthetic Irish language sentences containing place
 
 **📁 Dataset Repository**: https://github.com/jmcinern/placenames/tree/main/big_data
 
-The complete dataset of AI-generated Irish sentences with placenames is available for download as CSV files.
+The complete dataset of 28,017 AI-generated Irish sentences with placenames is available for download as CSV files.
 
 ### Dataset Schema
 
